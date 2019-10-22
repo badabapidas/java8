@@ -1,0 +1,73 @@
+Java 8 New Features:
+
+1) Lambda Expression
+2) Functional Interfaces
+3) Default methods (In interfaces)
+4) Static methods (In interfaces)
+5) Predicates (Predefined Functional Interfaces)
+6) Functions (Predefined Functional Interfaces)
+7) Consumer (Predefined Functional Interfaces)
+6) Double colon operator (::) (Method and Constructor references)
+7) Stream API
+8) Date and Time API
+
+
+The main purpose of java 8 in a simple words
+1. To simplify programming
+2. To utilize functional programming benifits in java
+3. To enable parallel processing
+
+
+~~~ LAMBDA Expressions
+- The Main Objective of Lambda Expression is to bring benefits of functional programming into Java.
+- Write more readable, maintainable and consice code
+- To enable parallel processing
+
+What is lamba expression
+
+Lambda Expression is just an anonymous (nameless) function. That means the function which doesn’t have the name, return type and access modifiers.
+Lambda Expression also known as anonymous functions or closures.
+
+Rules:
+if in the lambda expression there is only one statement then curly braces are optional.
+If the type of the parameter can be decided by compiler automatically based on the context then we can remove types also.
+If the lambda expr taking only one input param then param paranthesis also can be removed
+
+
+~~~ Functional Interfaces
+If an interface contain only one abstract method, such type of interfaces are called functional interfaces and the method is called functional method or single abstract method (SAM).
+
+Ex:
+1) Runnable -> It contains only run() method
+2) Comparable -> It contains only compareTo() method
+3) ActionListener -> It contains only actionPerformed()
+4) Callable -> It contains only call() method
+Inside functional interface in addition to single Abstract method (SAM) we write any number of default and static methods.
+
+In Java 8, Sun Micro System introduced @FunctionalInterface annotation to specify that the interface is Functional Interface.
+This is very much needed annotation as you take this scneario today we have created ony functional interface with one abstract method m1() and used in many lambda expressions. So without annotation also one functional interface can be valid. So suppose in future someone added one more method in that interface m2. Then your whole project will go for a toss as this is not a functional interface as we can not have more then one abstract methods. To restrict this kind of situatios java provide this annotation to give compilation error if someone try to exploit the rules of functional interface.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
