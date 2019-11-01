@@ -25,7 +25,7 @@ The main purpose of java 8 in a simple words
 
 What is lamba expression
 
-Lambda Expression is just an anonymous (nameless) function. That means the function which doesnâ€™t have the name, return type and access modifiers.
+Lambda Expression is just an anonymous (nameless) function. That means the function which doesn’t have the name, return type and access modifiers.
 Lambda Expression also known as anonymous functions or closures.
 
 Rules:
@@ -48,22 +48,40 @@ In Java 8, Sun Micro System introduced @FunctionalInterface annotation to specif
 This is very much needed annotation as you take this scneario today we have created ony functional interface with one abstract method m1() and used in many lambda expressions. So without annotation also one functional interface can be valid. So suppose in future someone added one more method in that interface m2. Then your whole project will go for a toss as this is not a functional interface as we can not have more then one abstract methods. To restrict this kind of situatios java provide this annotation to give compilation error if someone try to exploit the rules of functional interface.
 
 
+Why functional interface dont allow more then one astract method?
+Because in labmda expressions we can avoid call below
+
+a -> (a*a); now consider we have 2 abstract methhods in functional interface m1(int i) and m2(int j);
+
+Now in this case compiler will get confused which method to call; so its restricted to only one abstract method so that the mapping can be correct.
+
+~~~ In colection also lambda expression can be used. For example for any collection we can create our own comparator for sorting. So Comparator impl can be done with lambda.
+~~~ Anonymous innner classes are not same like lambda. Anonymous inner classes some part can be replace with lambda expressions. 
 
 
+From java 8 now we can define default and static methods in an interface. before java 8 all the methods written was by default public abstract methods. So from java 8 you can run an interface class also as main also a static function.
 
 
+~~~ Predicate: A predicate is a function with a single argument and returns boolean value. To implement predicate functions in Java, Oracle people introduced Predicate interface in 1.8 version (i.e.,Predicate<T>). Predicate interface present in Java.util.function package.
 
+~~~ Functions are exactly same as predicates except that functions can return any type of result but function should (can) return only one value and that value can be any type as per our requirement.
+Functional interface contains only one method i.e., apply()
 
+~~~ Sometimes our requirment is we have to provide some input value, perform certain operation, but not required to return anything,then we should go for Consumer.i.e Consumer can be used to consume object and perform certain operation. Consumer Functional Interface contains one abstract method accept.
 
+~~~ Supplier can be used to supply items (objects). Supplier won't take any input and it will always supply objects. Supplier Functional Interface contains only one method get().
 
+~~~ STREAMS
 
+process objects of the collection, in 1.8 version Streams concept introduced.
 
+What is the differences between Java.util.streams and Java.io streams?
+java.util streams meant for processing objects from the collection. Ie, it represents a stream of objects from the collection but Java.io streams meant for processing binary and character data with respect to file. i.e it represents stream of binary data or character data from the file .hence Java.io streams and Java.util streams both are different.
 
-
-
-
-
-
+What is the difference between collection and stream?
+? If we want to represent a group of individual objects as a single entity then We should go for collection.
+? If we want to process a group of objects from the collection then we should go for streams.
+? We can create a stream object to the collection by using stream() method of Collection interface. stream() method is a default method added to the Collection in 1.8 version.
 
 
 
