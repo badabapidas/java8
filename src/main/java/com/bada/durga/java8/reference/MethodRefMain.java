@@ -1,5 +1,7 @@
 package com.bada.durga.java8.reference;
 
+import java.util.function.Function;
+
 public class MethodRefMain {
 	public static void main(String[] args) {
 		Runnable r = MethodRefMain::staticMethod;
@@ -11,6 +13,10 @@ public class MethodRefMain {
 		Thread t1 = new Thread(r1);
 		t1.start();
 
+		// method ref with arguments
+		Function<Integer, Integer> f = MethodRefMain::anotherStaticMethod;
+		System.out.println(f.apply(10));
+
 	}
 
 	public static void staticMethod() {
@@ -19,5 +25,10 @@ public class MethodRefMain {
 
 	public void instanceMethod() {
 		System.out.println("Instance Method reference");
+	}
+
+	public static Integer anotherStaticMethod(Integer a) {
+		System.out.println("Another Static Method reference");
+		return a * a;
 	}
 }
